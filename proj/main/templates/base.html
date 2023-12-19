@@ -1,0 +1,43 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <link type="text/css" href="{% static 'main/css/style.css' %}" rel="stylesheet" />
+        <link rel="shortcut icon" href="{% static 'main/img/icon.png' %}" type="image/x-icon"/>
+        <meta charset="UTF-8">
+        
+        <title>{{title}}</title>
+
+    </head>
+    <body>
+        <header>
+            <a href="/"><img src="{% static 'main/img/logo.png' %}" class="img-logo"></a>
+            <a href="/"  class="logo"><h1>Калибровки.net</h1></a>
+        </header>
+    {% block mainmenu %}
+        
+        <nav>
+            <ul class="main-menu">
+                {% for m in menu %}
+                <a href="{% url m.url_name %}">
+                <li>{{m.title}}</li>
+                </a>
+                {% endfor %}
+            </ul>
+        </nav>
+    {% endblock mainmenu %}
+
+        <div class="center">
+            <ul id="leftchapters">
+                <li><a href="https://naukabgtg.github.io/Calibrovki_web/#7/53.201/29.509" target="_blank">Карта калибровок</a></li>
+                <li><a href="{% static 'main/files/custom.csd' %}" download>Файл калибровок</a></li>
+                <li><a href="{% url 'top' %}">.top</a></li>
+            </ul>
+        
+
+    {% block content %}
+    {% endblock %}
+        </div>
+    </body>
+</html>

@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <div class="cs-page">
+        <ul class="cs-ul">
+            <li class="cs-lable"><h3>Системы координат 1963г. Зона 1</h3></li>
+            {% for m in c1 %}
+            <li class="cs-li">{{m.name_calib_in_TBC}}</li>
+            {% endfor %}
+        </ul>
+    </div>
+{% endblock %}
